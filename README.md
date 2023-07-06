@@ -8,7 +8,9 @@
     ```text
     agent any
     ```
-2. 基于主机中 docker 的 python 镜像，需要打通 jenkins 容器与主机的 docker 之间的通信
+2. 基于主机中 docker 的 python 镜像，需要打通 jenkins 容器与主机的 docker 之间的通信。
+
+    `建议镜像：jenkinsci/blueocean ，无需在容器中再次安装docker`
     ```text
    agent {
        docker {
@@ -21,10 +23,6 @@
    # 主机为 Linux
    -v /var/run/docker.sock:/var/run/docker.sock \
    -v /var/run/docker:/var/run/docker
-   
-   # 主机为 Windows
-   # 借助 linux 容器作为中间件，即 在主机中启动一个 linux 容器作为 linux 服务器，然后在 linux 容器中进行 jenkins 容器的挂载启动
-   # 注：Windows 主机中，在 linux 容器中使用主机的 docker ，也需要相互打通，此处不做论述。
    ```
 3. 基于主机中的 python 解释器
 <br>TODO
