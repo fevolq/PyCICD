@@ -12,7 +12,7 @@ def add(*args):
 
 
 def multi(*args):
-    result = 0
+    result = 1
     for value in args:
         result *= value
     print(f'multi: {" x ".join([str(value) for value in args])} = {result}')
